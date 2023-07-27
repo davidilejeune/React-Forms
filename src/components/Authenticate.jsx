@@ -11,24 +11,24 @@ export default function Authenticate( { token } ){
             {
                 method: 'GET',
                 headers: {
-                    "Content Type": "application/json",
+                    "Content-Type": "application/json",
                     "Authorization": `Bearer ${token}`
                 }  
             })       
                 const responseData = await response.json()
                 console.log(responseData)
 
-                setSuccessMessage(`Hello, ${responseData.data.userName}`)
+                setSuccessMessage(`Hello, ${responseData.data.username}`)
                 
         } catch(error){
-            setError(error.message)
+            setError(error.message);
         }
     }
 
 
 
-    return (
-        <>
+return (
+    <div>
             <h2>Authenticate</h2>
             { (successMessage) ? <p>{successMessage}</p> : <></>}
 
@@ -37,6 +37,6 @@ export default function Authenticate( { token } ){
             {error && <p>{error}</p>}
 
             <button onClick={handleClick}>Authenticate Token</button>
-    </>
+    </div>
     )
 }

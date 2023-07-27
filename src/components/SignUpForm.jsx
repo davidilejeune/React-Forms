@@ -21,29 +21,34 @@ async function handleSubmit(e){
             username: userName,
             password: password
         })
-    })
+    }
+)
 
 const data = await response.json()
 
-setToken(data.token);
+setToken(data.token)
+
 setUserName('')
 setPassword('')
-}
- catch(err){
+
+} catch(err){
     setError(err)
 }
 }
 
-return ( 
-
+return (
     <div>
-    <h2>Sign Up</h2>;
+    <h2>Sign Up</h2>
 
     <form onSubmit={handleSubmit}>        
-        <label value={userName} onChange={(e) => setUserName(e.target.value)}>Username: <input /></label>     
-        <label value={password} onChange={(e) => setPassword(e.target.value)}>Password: <input /></label>
-        <button type='password' value={password} onChange={(e) => setPassword(e.target.value)}>Submit</button>
+        <label >Username: 
+        <input value={userName} onChange={(e) => setUserName(e.target.value)} />
+        </label>     
+        <label>Password: 
+        <input value={password} onChange={(e) => setPassword(e.target.value)} />
+        </label>
+        <button>Submit</button>
     </form>
     </div>
-)
+    )
 }
